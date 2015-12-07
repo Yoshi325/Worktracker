@@ -1,0 +1,184 @@
+#!/usr/bin/python
+
+# -*- coding: utf-8 -*-
+
+
+# Form implementation generated from reading ui file 'vsm.ui'
+#
+# Created: Fri Sep  4 21:30:46 2015
+#      by: PyQt4 UI code generator 4.11.2
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt4 import QtCore, QtGui
+from datetime import datetime
+import sys 
+
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
+
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName(_fromUtf8("Dialog"))
+        Dialog.resize(434, 300)
+        self.widget = QtGui.QWidget(Dialog)
+        self.widget.setGeometry(QtCore.QRect(0, 10, 426, 228))
+        self.widget.setObjectName(_fromUtf8("widget"))
+        self.gridLayout_4 = QtGui.QGridLayout(self.widget)
+        self.gridLayout_4.setMargin(0)
+        self.gridLayout_4.setObjectName(_fromUtf8("gridLayout_4"))
+        self.gridLayout_3 = QtGui.QGridLayout()
+        self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
+        self.horizontalLayout_3 = QtGui.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(_fromUtf8("horizontalLayout_3"))
+        self.job_number_label = QtGui.QLabel(self.widget)
+        self.job_number_label.setObjectName(_fromUtf8("job_number_label"))
+        self.horizontalLayout_3.addWidget(self.job_number_label)
+        self.job_number_lineEdit = QtGui.QLineEdit(self.widget)
+        self.job_number_lineEdit.setObjectName(_fromUtf8("job_number_lineEdit"))
+        self.horizontalLayout_3.addWidget(self.job_number_lineEdit)
+        self.gridLayout_3.addLayout(self.horizontalLayout_3, 0, 0, 1, 1)
+        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        self.item_label = QtGui.QLabel(self.widget)
+        self.item_label.setObjectName(_fromUtf8("item_label"))
+        self.horizontalLayout.addWidget(self.item_label)
+        self.item_lineEdit = QtGui.QLineEdit(self.widget)
+        self.item_lineEdit.setObjectName(_fromUtf8("item_lineEdit"))
+        self.horizontalLayout.addWidget(self.item_lineEdit)
+        self.gridLayout_3.addLayout(self.horizontalLayout, 0, 1, 1, 1)
+        self.gridLayout_4.addLayout(self.gridLayout_3, 0, 0, 1, 1)
+        self.gridLayout_2 = QtGui.QGridLayout()
+        self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
+        self.verticalLayout_3 = QtGui.QVBoxLayout()
+        self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
+        self.pcmk_label = QtGui.QLabel(self.widget)
+        self.pcmk_label.setObjectName(_fromUtf8("pcmk_label"))
+        self.verticalLayout_3.addWidget(self.pcmk_label)
+        self.welder_label = QtGui.QLabel(self.widget)
+        self.welder_label.setObjectName(_fromUtf8("welder_label"))
+        self.verticalLayout_3.addWidget(self.welder_label)
+        self.plate_label = QtGui.QLabel(self.widget)
+        self.plate_label.setObjectName(_fromUtf8("plate_label"))
+        self.verticalLayout_3.addWidget(self.plate_label)
+        self.pipe_label = QtGui.QLabel(self.widget)
+        self.pipe_label.setObjectName(_fromUtf8("pipe_label"))
+        self.verticalLayout_3.addWidget(self.pipe_label)
+        self.gridLayout_2.addLayout(self.verticalLayout_3, 0, 0, 1, 1)
+        self.gridLayout = QtGui.QGridLayout()
+        self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
+        self.verticalLayout_2 = QtGui.QVBoxLayout()
+        self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
+        self.pcmk_lineEdit = QtGui.QLineEdit(self.widget)
+        self.pcmk_lineEdit.setObjectName(_fromUtf8("pcmk_lineEdit"))
+        self.verticalLayout_2.addWidget(self.pcmk_lineEdit)
+        self.welder_lineEdit = QtGui.QLineEdit(self.widget)
+        self.welder_lineEdit.setObjectName(_fromUtf8("welder_lineEdit"))
+        self.verticalLayout_2.addWidget(self.welder_lineEdit)
+        self.plate_lineEdit = QtGui.QLineEdit(self.widget)
+        self.plate_lineEdit.setObjectName(_fromUtf8("plate_lineEdit"))
+        self.verticalLayout_2.addWidget(self.plate_lineEdit)
+        self.pipe_lineEdit = QtGui.QLineEdit(self.widget)
+        self.pipe_lineEdit.setObjectName(_fromUtf8("pipe_lineEdit"))
+        self.verticalLayout_2.addWidget(self.pipe_lineEdit)
+        self.gridLayout.addLayout(self.verticalLayout_2, 0, 0, 1, 1)
+        self.verticalLayout = QtGui.QVBoxLayout()
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.pcmk_2_lineEdit = QtGui.QLineEdit(self.widget)
+        self.pcmk_2_lineEdit.setObjectName(_fromUtf8("pcmk_2_lineEdit"))
+        self.verticalLayout.addWidget(self.pcmk_2_lineEdit)
+        self.welder_2_lineEdit = QtGui.QLineEdit(self.widget)
+        self.welder_2_lineEdit.setObjectName(_fromUtf8("welder_2_lineEdit"))
+        self.verticalLayout.addWidget(self.welder_2_lineEdit)
+        self.plate_2_lineEdit = QtGui.QLineEdit(self.widget)
+        self.plate_2_lineEdit.setObjectName(_fromUtf8("plate_2_lineEdit"))
+        self.verticalLayout.addWidget(self.plate_2_lineEdit)
+        self.pipe_2_lineEdit = QtGui.QLineEdit(self.widget)
+        self.pipe_2_lineEdit.setObjectName(_fromUtf8("pipe_2_lineEdit"))
+        self.verticalLayout.addWidget(self.pipe_2_lineEdit)
+        self.gridLayout.addLayout(self.verticalLayout, 0, 1, 1, 1)
+        self.gridLayout_2.addLayout(self.gridLayout, 0, 1, 1, 1)
+        self.gridLayout_4.addLayout(self.gridLayout_2, 1, 0, 1, 1)
+        self.horizontalLayout_2 = QtGui.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
+        self.close = QtGui.QPushButton(self.widget)
+        self.close.setObjectName(_fromUtf8("close"))
+        self.horizontalLayout_2.addWidget(self.close)
+        self.enter = QtGui.QPushButton(self.widget)
+        self.enter.setObjectName(_fromUtf8("enter"))
+        self.horizontalLayout_2.addWidget(self.enter)
+        self.gridLayout_4.addLayout(self.horizontalLayout_2, 2, 0, 1, 1)
+        self.item_label.setBuddy(self.item_lineEdit)
+        self.pcmk_label.setBuddy(self.pcmk_lineEdit)
+        self.welder_label.setBuddy(self.welder_lineEdit)
+        self.plate_label.setBuddy(self.plate_lineEdit)
+        self.pipe_label.setBuddy(self.pipe_lineEdit)
+
+        self.retranslateUi(Dialog)
+        QtCore.QObject.connect(self.close, QtCore.SIGNAL(_fromUtf8("clicked()")), Dialog.close)
+        QtCore.QObject.connect(self.enter, QtCore.SIGNAL(_fromUtf8("clicked()")),self.Enter)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        Dialog.setWindowTitle(_translate("Dialog", "TWS VSM Line", None))
+        self.job_number_label.setText(_translate("Dialog", "Job Number", None))
+        self.item_label.setText(_translate("Dialog", "Item #", None))
+        self.pcmk_label.setText(_translate("Dialog", "PC MK #", None))
+        self.welder_label.setText(_translate("Dialog", "Welder ID", None))
+        self.plate_label.setText(_translate("Dialog", "Plate Heat #", None))
+        self.pipe_label.setText(_translate("Dialog", "Pipe Heat #", None))
+        self.close.setText(_translate("Dialog", "Close", None))
+        self.enter.setText(_translate("Dialog", "Enter", None))
+
+
+    def Enter(self):
+        job_num = self.job_number_lineEdit.text()
+        item = self.item_lineEdit.text()
+        pcmk = self.pcmk_lineEdit.text()
+        pcmk2 = self.pcmk_2_lineEdit.text()
+        welder = self.welder_lineEdit.text()
+        welder2 = self.welder_2_lineEdit.text()
+        plate = self.plate_lineEdit.text()
+        plate2 = self.plate_2_lineEdit.text()
+        pipe = self.pipe_lineEdit.text()
+        pipe2 = self.pipe_2_lineEdit.text()
+        now = datetime.now()
+
+        f = open("/projects/python/Worktracker/text/%sitem%s.txt" % (job_num,item), "a")
+
+
+
+        if pcmk2 == "":
+            f.write("%s\n%s\n%s\n%s\n%s\n" % (pcmk, welder, plate,pipe,now))
+            pcmk = int(pcmk) + 1
+        else:
+            f.write("%s\n%s\n%s\n%s\n%s\n" % (pcmk, welder, plate, pipe, now))
+            f.write("%s\n%s\n%s\n%s\n%s\n" % (pcmk2, welder2, plate2, pipe2, now))
+            pcmk = int(pcmk) +2
+            pcmk2 = int(pcmk2) + 2
+        f.close()
+
+        self.pcmk_lineEdit.setText("%s" % pcmk)
+        self.pcmk_2_lineEdit.setText("%s" %pcmk2)
+
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    Dialog = QtGui.QDialog()
+    ui = Ui_Dialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
+    sys.exit(app.exec_())

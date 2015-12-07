@@ -1,0 +1,34 @@
+WorkTracker 
+
+This is a basic out line of this project. The idea is to inter the heat number 
+of a pipe and its related mark number and  information, log it into a SQL 
+database, and access the information through a public web address. 
+
+There will be three main parts to this project. The first the GUI. This is 
+what the worker will interact with. It must be intuitive, quick, and easy 
+to correct. The second is the server backend. This includes the database and 
+the code to interact with it. The last is the web interface. This will need 
+a secure login to identify the user and determin the ammount of information 
+they can access.
+
+GUI:
+The GUI will be based off the project I did for pluralsight. That means PYQT. 
+I will meed to get the welders initials, the pipe heat number, the plate heat 
+number, the time and the date. I want this to update/sync the server DB every 
+2 minuites. The device this runs on will have a SQL DB as a back up.
+
+welder ID    |      pipe HT#    |     pl HT#    |     timestamp
+________________________________________________________________
+DPJ          |      MA6245      |     NO4140    |  xx:xx:xx:xxxx
+AAA          |      MA6245      |     NO4140    |  xx:xx:xx:xxxx
+DPJ          |      MA6245      |     NO4140    |  xx:xx:xx:xxxx
+AAA          |      MA6245      |     NO4140    |  xx:xx:xx:xxxx
+
+Backend:
+The backend will be the same SQL database that is depicted above in the GUI 
+section. The front end will needto interact with it
+
+Frontend:
+This is what the client will see. It needs to be intuitive and flow. It must be 
+near real time sync with the device used in the shop. It will require a login 
+before entry to anything. 

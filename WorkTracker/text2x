@@ -1,0 +1,164 @@
+#!/usr/bin/python
+
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'text2x.ui'
+#
+# Created: Tue Sep  1 16:46:30 2015
+#      by: PyQt4 UI code generator 4.11.2
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt4 import QtCore, QtGui
+import openpyxl
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
+
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName(_fromUtf8("Dialog"))
+        Dialog.resize(400, 300)
+        self.widget = QtGui.QWidget(Dialog)
+        self.widget.setGeometry(QtCore.QRect(100, 60, 222, 183))
+        self.widget.setObjectName(_fromUtf8("widget"))
+        self.gridLayout = QtGui.QGridLayout(self.widget)
+        self.gridLayout.setMargin(0)
+        self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
+        self.verticalLayout = QtGui.QVBoxLayout()
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        self.text_label = QtGui.QLabel(self.widget)
+        self.text_label.setObjectName(_fromUtf8("text_label"))
+        self.horizontalLayout.addWidget(self.text_label)
+        self.text_lineEdit = QtGui.QLineEdit(self.widget)
+        self.text_lineEdit.setObjectName(_fromUtf8("text_lineEdit"))
+        self.horizontalLayout.addWidget(self.text_lineEdit)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.brow_file = QtGui.QPushButton(self.widget)
+        self.brow_file.setObjectName(_fromUtf8("brow_file"))
+        self.verticalLayout.addWidget(self.brow_file)
+        self.horizontalLayout_2 = QtGui.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
+        self.xl_label = QtGui.QLabel(self.widget)
+        self.xl_label.setObjectName(_fromUtf8("xl_label"))
+        self.horizontalLayout_2.addWidget(self.xl_label)
+        self.xl_lineEdit = QtGui.QLineEdit(self.widget)
+        self.xl_lineEdit.setObjectName(_fromUtf8("xl_lineEdit"))
+        self.horizontalLayout_2.addWidget(self.xl_lineEdit)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.brows_xl = QtGui.QPushButton(self.widget)
+        self.brows_xl.setObjectName(_fromUtf8("brows_xl"))
+        self.verticalLayout.addWidget(self.brows_xl)
+        self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
+        self.horizontalLayout_3 = QtGui.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(_fromUtf8("horizontalLayout_3"))
+        self.close = QtGui.QPushButton(self.widget)
+        self.close.setObjectName(_fromUtf8("close"))
+        self.horizontalLayout_3.addWidget(self.close)
+        self.Enter = QtGui.QPushButton(self.widget)
+        self.Enter.setObjectName(_fromUtf8("Enter"))
+        self.horizontalLayout_3.addWidget(self.Enter)
+        self.gridLayout.addLayout(self.horizontalLayout_3, 1, 0, 1, 1)
+
+        self.retranslateUi(Dialog)
+        QtCore.QObject.connect(self.close, QtCore.SIGNAL(_fromUtf8("clicked()")), self.Close)
+        QtCore.QObject.connect(self.Enter, QtCore.SIGNAL(_fromUtf8("clicked()")), self.enter)
+        QtCore.QObject.connect(self.brow_file, QtCore.SIGNAL(_fromUtf8("clicked()")), self.Brows_text)
+        QtCore.QObject.connect(self.brows_xl, QtCore.SIGNAL(_fromUtf8("clicked()")), self.Brows_xl)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        Dialog.setWindowTitle(_translate("Dialog", "Text 2 X", None))
+        self.text_label.setText(_translate("Dialog", "Text File", None))
+        self.brow_file.setText(_translate("Dialog", "Brows", None))
+        self.xl_label.setText(_translate("Dialog", "  Xl File  ", None))
+        self.brows_xl.setText(_translate("Dialog", "Brows", None))
+        self.close.setText(_translate("Dialog", "Close", None))
+        self.Enter.setText(_translate("Dialog", "Enter", None))
+
+
+    def Close(self):
+        exit(0)
+
+    def Brows_text(self):
+        
+        textFileLocation = QtGui.QFileDialog.getOpenFileName()
+        self.text_lineEdit.setText(textFileLocation)
+
+
+    def Brows_xl(self):
+        xlFileLocation = QtGui.QFileDialog.getSaveFileName(caption="Save File As")
+        self.xl_lineEdit.setText(xlFileLocation)
+
+
+    def enter(self):
+        
+        ####################txt##################
+        # get the txt file from the user input
+        text = self.text_lineEdit.text()
+        xlsx = self.xl_lineEdit.text()
+        # open the file and put data into a list
+        txt_file = open("%s" % text, "r")
+        txt_list = []
+        for each_word in txt_file:
+            txt_list.append(each_word)
+        # close the text file we are done with it
+        txt_file.close()
+
+
+        ################xlsx####################
+        # open xlsx file
+        wb = openpyxl.Workbook()
+        ws = wb.create_sheet(0)
+
+        # add some headers to the xlsx file 
+        a = ws.cell('A1')
+        a.value = 'PCMK'
+        b = ws.cell('B1')
+        b.value = "Welder ID"
+        c = ws.cell('C1')
+        c.value = "Plate Ht#"
+        d = ws.cell('D1')
+        d.value = "Pipe Ht#"
+        e = ws.cell('E1')
+        e.value = "Datetime"
+
+        for i in range(len(txt_list)):
+            if (i % 5) == 0: 
+                write_to_cell_A = ws.cell('A%d' % (int(i / 5 )+2))
+                write_to_cell_A.value = "%s" % txt_list[i]
+                write_to_cell_B = ws.cell('B%d' % (int(i / 5 )+2))
+                write_to_cell_B.value = "%s" % txt_list[i + 1]
+                write_to_cell_C = ws.cell('C%d' % (int(i / 5 )+2))
+                write_to_cell_C.value = "%s" % txt_list[i + 2]
+                write_to_cell_D = ws.cell('D%d' % (int(i / 5 )+2))
+                write_to_cell_D.value = "%s" % txt_list[i + 3]
+                write_to_cell_E = ws.cell('E%d' % (int(i / 5 )+2))
+                write_to_cell_E.value = "%s" % txt_list[i + 4]
+        
+        # save and close
+        wb.save('%s.xlsx' % xlsx)
+        
+        exit(0)
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    Dialog = QtGui.QDialog()
+    ui = Ui_Dialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
+    sys.exit(app.exec_())
+
